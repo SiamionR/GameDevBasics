@@ -7,8 +7,13 @@ before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update
   
-install: 
-  - sudo apt-get install g++-7
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
+      - gcc-7
 
 script:
   - cd GameDevProjects/01HelloBuildProject
