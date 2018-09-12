@@ -12,4 +12,4 @@ script:
   - cd GameDevProjects/01HelloBuildProject
   - mkdir build
   - cd build
-  - ./configure && cmake ../  && make
+  - cmake ../  && make
