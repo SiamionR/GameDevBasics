@@ -1,4 +1,4 @@
-dist: trusty
+sudo: false
 language: cpp
 
 addons:
@@ -8,6 +8,11 @@ addons:
     packages:
       - g++-7
 
+before_install:
+  - sudo apt-get update -qq
+
 script:
-  - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-5 cmake .
-  - cmake --build . -- -j2
+  - cd GameDevProjects/01HelloBuildProject
+  - mkdir build
+  - cd build
+  - cmake ../  && make
