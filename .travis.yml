@@ -6,13 +6,10 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-7
-
-before_install:
-  - sudo apt-get update -qq
+      - g++-5
 
 script:
   - cd GameDevProjects/01HelloBuildProject
   - mkdir build
   - cd build
-  - cmake ../  && make
+  - ./configure && cmake ../  && make
