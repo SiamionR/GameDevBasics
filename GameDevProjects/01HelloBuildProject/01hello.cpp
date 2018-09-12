@@ -1,7 +1,8 @@
 #include <iostream>
+#include <cstdlib>
 #include <functional>
 
 int main() {
-  [out = std::ref(std::cout<<"Hello ")](){out.get() << "World\n";}();
+  std::cout << "Hello World!" << std::endl;
   return std::cout.good() ? EXIT_SUCCESS : EXIT_FAILURE;
 }
