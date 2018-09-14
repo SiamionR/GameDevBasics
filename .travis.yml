@@ -1,6 +1,9 @@
 language: cpp
 compiler: gcc
 dist: trusty
+branches:
+  only:
+  - master
 
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
@@ -11,11 +14,12 @@ install:
 
 script:
   - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7
-  - cd GameDevProjects/01HelloBuildProject
+  - cd $TRAVIS_BUILD_DIR/01HelloBuildProject && cd $TRAVIS_BUILD_DIR/02-01StaticBuildProject
   - mkdir build
   - cd build
   - cmake ..  && make
   - ./hello
+  - ./static_bin
 
 notifications:
   email: false
