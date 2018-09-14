@@ -12,14 +12,24 @@ before_install:
 install:
   - sudo apt-get install -qq g++-7
 
-script:
-  - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7
-  - cd $TRAVIS_BUILD_DIR/01HelloBuildProject && cd $TRAVIS_BUILD_DIR/02-01StaticBuildProject
-  - mkdir build
-  - cd build
-  - cmake ..  && make
-  - ./hello
-  - ./static_bin
+jobs:
+  include:
+    - stage: hello
+      script:
+        - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7
+        - cd $TRAVIS_BUILD_DIR/01HelloBuildProject
+        - mkdir build
+        - cd build
+        - cmake ..  && make
+        - ./hello
+    - stage: static_lib
+      script:
+        - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7
+        - cd $TRAVIS_BUILD_DIR/02-01StaticBuildProject
+        - mkdir build
+        - cd build
+        - cmake ..  && make
+        - ./static_bin
 
 notifications:
   email: false
