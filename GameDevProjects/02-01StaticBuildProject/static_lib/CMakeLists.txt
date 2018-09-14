@@ -1,4 +1,4 @@
-cmake_minimum(VERSION 3.2)
+cmake_minimum_required(VERSION 3.2)
 project (static_lib)
 
 add_library(${PROJECT_NAME} STATIC include/static_lib.hpp src/static_lib.cpp)
@@ -8,7 +8,7 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
 
 if(MSVC)
-  set(/W4 /WX)
+  set(/W4 /WX /std:c++17)
 else()
   set(-Wall -Wextra -pedantic -Werror)
 endif()

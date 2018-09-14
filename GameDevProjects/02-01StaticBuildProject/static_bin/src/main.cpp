@@ -1,6 +1,6 @@
 #include <cstdlib>
 
-#include <hello_lib.hxx>
+#include <static_lib.hpp>
 
 int main()
 {

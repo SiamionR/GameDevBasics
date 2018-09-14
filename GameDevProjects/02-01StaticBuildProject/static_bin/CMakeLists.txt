@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.2)
-project(static-bin)
+project(static_bin)
 
-add_executable(static-bin src/main.cpp)
-target_link_libraries(static-bin LINK_PUBLIC static-bin)
+add_executable(${PROJECT_NAME} src/main.cpp)
+target_link_libraries(${PROJECT_NAME} LINK_PUBLIC static_lib)
 
-set_property(TARGET static-bin PROPERTY CXX_STANDARD 17)
-set_property(TARGET static-bin PROPERTY CXX_STANDARD_REQUIRED ON)
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
 
 if(MSVC)
-  set(/W4 /WX)
+  set(/W4 /WX /std:c++17)
 else()
   set(-Wall -Wextra -pedantic -Werror)
 endif()

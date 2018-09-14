@@ -17,7 +17,7 @@ jobs:
     - stage: hello
       script:
         - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7
-        - cd $TRAVIS_BUILD_DIR/01HelloBuildProject
+        - cd GameDevProjects/01HelloBuildProject
         - mkdir build
         - cd build
         - cmake ..  && make
@@ -25,11 +25,11 @@ jobs:
     - stage: static_lib
       script:
         - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7
-        - cd $TRAVIS_BUILD_DIR/02-01StaticBuildProject
+        - cd GameDevProjects/02-01StaticBuildProject
         - mkdir build
         - cd build
         - cmake ..  && make
-        - ./static_bin
+        - static_bin/static_bin
 
 notifications:
   email: false
