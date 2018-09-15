@@ -24,12 +24,18 @@ jobs:
         - ./hello
     - stage: static_lib
       script:
-        - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7
         - cd GameDevProjects/02-01StaticBuildProject
         - mkdir build
         - cd build
         - cmake ..  && make
         - static_bin/static_bin
+     - stage: dynamic_lib
+       script:
+        - cd GameDevProjects/02-02DynamicBuildProject
+        - mkdir build
+        - cd build
+        - cmake ..  && make
+        - dynamic_bin/dynamic_bin
 
 notifications:
   email: false
